@@ -10,6 +10,10 @@ This is a section component that showcases news in cards, You can archive them a
 
 `npm install` before all don't forget about the basics
 
+create a .env file and this environment variable
+
+`REACT_APP_API_URL=http://localhost:3004`
+
 - ` npm run start` and you now have a webpack dev server
 
 ## What technologies can I find in this proyect?
