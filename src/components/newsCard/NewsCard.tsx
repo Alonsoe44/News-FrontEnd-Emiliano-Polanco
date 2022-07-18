@@ -10,7 +10,7 @@ const NewsCard = ({
   newsData: { date, title, description },
 }: NewsCardProps) => {
   return (
-    <li className="bg-primaryContrast text-primaryContrastText p-5 rounded-lg list-none">
+    <li className="bg-primaryContrast text-primaryContrastText p-5 rounded-lg list-none mb-8">
       <NewsDate text={date} />
       <NewsTitle text={title} />
       <NewsDescription text={description} />
