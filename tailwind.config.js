@@ -6,6 +6,9 @@ module.exports = {
     colors: {
       primary: "#1C233D",
       primaryContrast: "#FFFFFF",
+      primaryContrastText: "#000000",
+      primaryContrastTextLight: "#474747",
+      SecondaryText: "#ACACAC",
     },
   },
   plugins: [],

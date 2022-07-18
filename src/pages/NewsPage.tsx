@@ -2,7 +2,7 @@ import NewsListSection from "../components/newsListSection/NewsListSection";
 
 const NewsPage = () => {
   return (
-    <div>
+    <div className="bg-primary h-screen">
       <NewsListSection />
     </div>
   );

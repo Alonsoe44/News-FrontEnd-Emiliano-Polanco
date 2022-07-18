@@ -2,6 +2,7 @@ import NewsInterface from "../../interfaces/NewsInterface";
 import NewsCard from "../newsCard/NewsCard";
 import SectionButton from "./sectionButton/SectionButton";
 import SectionTitle from "./sectionTitle/SectionTitle";
+
 const myAmazingNew: NewsInterface = {
   title:
     "Here today we bought all the bitcon in the market, Allfunds it's goinc all in with cryptocurrency",
@@ -11,13 +12,18 @@ const myAmazingNew: NewsInterface = {
   author: "John Doe",
   content: "Lorem ipsum",
 };
+
 const NewsListSection = () => {
   return (
-    <div>
+    <article className="h-screen p-6 ">
       <SectionTitle text="Look at our latest news" />
-      <SectionButton />
+      <SectionButton
+        action={() => {
+          console.log("elpepe");
+        }}
+      />
       <NewsCard newsData={myAmazingNew} />
-    </div>
+    </article>
   );
 };
 

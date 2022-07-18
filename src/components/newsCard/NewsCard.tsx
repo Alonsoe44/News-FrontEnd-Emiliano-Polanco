@@ -10,17 +10,22 @@ const NewsCard = ({
   newsData: { date, title, description },
 }: NewsCardProps) => {
   return (
-    <div>
+    <li className="bg-primaryContrast text-primaryContrastText p-5 rounded-lg list-none">
       <NewsDate text={date} />
       <NewsTitle text={title} />
       <NewsDescription text={description} />
-      <NewsButton
-        text="Archive"
-        action={() => {
-          console.log("Hi bro");
-        }}
-      />
-    </div>
+      <div
+        className="flex justify-end pr-5 pt-2
+      "
+      >
+        <NewsButton
+          text="Archive"
+          action={() => {
+            console.log("Hi bro");
+          }}
+        />
+      </div>
+    </li>
   );
 };
 
