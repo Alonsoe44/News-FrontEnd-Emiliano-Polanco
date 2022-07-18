@@ -1,8 +1,10 @@
 import { FaArchive } from "react-icons/fa";
+import { IoMdReturnLeft } from "react-icons/io";
 interface SectionButtonProps {
   action: () => void;
+  archiveView: boolean;
 }
-const SectionButton = ({ action }: SectionButtonProps) => {
+const SectionButton = ({ action, archiveView }: SectionButtonProps) => {
   return (
     <button
       onClick={() => {
@@ -10,8 +12,16 @@ const SectionButton = ({ action }: SectionButtonProps) => {
       }}
       className="inline my-5 text-SecondaryText"
     >
-      <FaArchive className="inline mr-1 text-sm mb-1 text-SecondaryText" />{" "}
-      Archived
+      {archiveView ? (
+        <>
+          <IoMdReturnLeft className="text-3xl inline" />
+        </>
+      ) : (
+        <>
+          <FaArchive className="inline mr-1 text-sm mb-1 text-SecondaryText" />
+          Archived
+        </>
+      )}
     </button>
   );
 };

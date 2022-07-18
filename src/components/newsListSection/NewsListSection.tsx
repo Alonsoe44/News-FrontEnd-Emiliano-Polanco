@@ -7,23 +7,31 @@ import axios from "axios";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 const NewsListSection = () => {
-  const [news, setNews] = useState<NewsInterface[]>([]);
+  const [allNews, setAllNews] = useState<NewsInterface[]>([]);
+  const [archiveView, setArchiveView] = useState(false);
+
   useEffect(() => {
     axios.get((apiUrl + "/news") as string).then((res) => {
-      setNews(res.data);
+      setAllNews(res.data);
     });
   }, []);
+
   return (
     <article className="p-6 ">
-      <SectionTitle text="Look at our latest news" />
+      <SectionTitle archiveView={archiveView} />
       <SectionButton
         action={() => {
-          console.log("elpepe");
+          setArchiveView(!archiveView);
         }}
+        archiveView={archiveView}
       />
-      {news.map((news) => (
-        <NewsCard newsData={news} key={news._id} />
-      ))}
+      {allNews
+        .filter((news: NewsInterface) =>
+          archiveView ? news.archiveDate : !news.archiveDate
+        )
+        .map((news) => (
+          <NewsCard newsData={news} key={news._id} />
+        ))}
     </article>
   );
 };
