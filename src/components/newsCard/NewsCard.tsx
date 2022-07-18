@@ -5,9 +5,14 @@ import NewsDescription from "./newsDescription/NewsDescription";
 import NewsTitle from "./newsTitle/NewsTitle";
 interface NewsCardProps {
   newsData: NewsInterface;
+  archiveNews: () => void;
+  deleteNews: () => void;
 }
+
 const NewsCard = ({
   newsData: { date, title, description, archiveDate },
+  archiveNews,
+  deleteNews,
 }: NewsCardProps) => {
   return (
     <li
@@ -25,7 +30,7 @@ const NewsCard = ({
         <NewsButton
           text={archiveDate ? "Delete" : "Archive"}
           action={() => {
-            console.log("Hi bro");
+            archiveDate ? deleteNews() : archiveNews();
           }}
           isDeleteButton={archiveDate ? true : false}
         />
