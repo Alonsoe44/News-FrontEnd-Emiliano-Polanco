@@ -7,10 +7,14 @@ interface NewsCardProps {
   newsData: NewsInterface;
 }
 const NewsCard = ({
-  newsData: { date, title, description },
+  newsData: { date, title, description, archiveDate },
 }: NewsCardProps) => {
   return (
-    <li className="bg-primaryContrast text-primaryContrastText p-5 rounded-lg list-none mb-8">
+    <li
+      className={`text-primaryContrastText p-5 rounded-lg list-none mb-8 ${
+        archiveDate ? "bg-archiveBackground" : "bg-primaryContrast"
+      }`}
+    >
       <NewsDate text={date} />
       <NewsTitle text={title} />
       <NewsDescription text={description} />
@@ -19,10 +23,11 @@ const NewsCard = ({
       "
       >
         <NewsButton
-          text="Archive"
+          text={archiveDate ? "Delete" : "Archive"}
           action={() => {
             console.log("Hi bro");
           }}
+          isDeleteButton={archiveDate ? true : false}
         />
       </div>
     </li>
